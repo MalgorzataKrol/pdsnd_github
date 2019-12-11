@@ -17,8 +17,6 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
 WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
 
-# function to return key for any value (val) from dictionary dictionary
-
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -90,8 +88,6 @@ def load_data(city, month, day):
     
     return df
 
-#filters_output = get_filters()
-#dff = load_data(filters_output[0], filters_output[1], filters_output[2])
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
