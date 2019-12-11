@@ -14,13 +14,7 @@ from matplotlib import pyplot as plt
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-MONTHS = {1: 'january',
-          2: 'february',
-          3: 'march',
-          4: 'april',
-          5: 'may',
-          6: 'june',
-          7: 'all'}
+MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
 WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
 
 # function to return key for any value (val) from dictionary dictionary
@@ -48,8 +42,8 @@ def get_filters():
 
     # TO DO: get user input for month (all, january, february, ... , june)
     month = None
-    while month not in MONTHS.values():
-        month = input("Choose month of the analysis from: {}:".format(MONTHS.values()))
+    while month not in MONTHS:
+        month = input("Choose month of the analysis from: {}:".format(MONTHS))
         month = month.lower()
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
@@ -87,10 +81,10 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        month = get_key_val(MONTHS, month)
+        month = MONTHS.index(month)
     
         # filter by month to create the new dataframe
-        df = df[df['month'] == month]
+        df = df[df['month'] == month + 1]
 
     # filter by day of week if applicable
     if day != 'all':
@@ -111,7 +105,7 @@ def time_stats(df):
 
     # TO DO: display the most common month
     month_mode = df['month'].mode()[0]
-    print("\n The most common month: ", MONTHS[month_mode])
+    print("\n The most common month: ", MONTHS[month_mode-1])
 
     # TO DO: display the most common day of week
     day_mode = df['day_of_week'].mode()[0]
@@ -175,8 +169,7 @@ def trip_duration_histo(df):
         ax1.set_xlabel('month')
         ax1.set_ylabel('number of rentals')
         ax1.hist(df['month'], bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5], rwidth = 0.95)
-        Months2=["nothing"] + list(MONTHS.values())
-        ax1.set_xticklabels(Months2[:7], rotation=45)
+        ax1.set_xticklabels(['nothing'] + MONTHS[:7], rotation=45)
     else:
         ax1.remove()
         
