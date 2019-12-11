@@ -18,10 +18,6 @@ MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
 WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
 
 # function to return key for any value (val) from dictionary dictionary
-def get_key_val(dictionary, val): 
-    for key, value in dictionary.items(): 
-         if val == value: 
-             return key 
 
 def get_filters():
     """
