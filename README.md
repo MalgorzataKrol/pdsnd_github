@@ -16,5 +16,12 @@ Files used for this project can be downloaded from here: [bikeshare-2](https://v
 
 There was some data wrangling computed on the source data.
 
+### Software
+
+To run the project:
+- You should have Python 3, NumPy, pandas and matplotlib installed
+- A terminal application (Terminal on Mac and Linux or Cygwin on Windows).
+
+
 ### Credits
 [Udacity](https://www.udacity.com/)
